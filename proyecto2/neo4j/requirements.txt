@@ -1,0 +1,8 @@
+Flask
+neo4j
+flask_cors
+#typing_extensions
+# os
+# json 
+# textwrap 
+# typing

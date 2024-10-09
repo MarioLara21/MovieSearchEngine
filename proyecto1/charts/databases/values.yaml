@@ -1,0 +1,21 @@
+rabbitmq:
+  platform: linux/arm64
+  
+mariadb:
+  enabled: false
+  metrics:
+    enabled: true
+    serviceMonitor: 
+      enabled: true
+      namespace: monitoring
+elastic:
+  enabled: true
+  version: 8.6.1
+  replicas: 1
+  name: p1ic4302
+kibana:
+  enabled: true
+  version: 8.6.1
+  replicas: 1
+  name: p1ic4302
+

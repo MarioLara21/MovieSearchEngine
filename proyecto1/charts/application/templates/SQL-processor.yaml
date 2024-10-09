@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sql-processor
+  labels:
+    app: sql-processor
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: sql-processor
+  template:
+    metadata:
+      labels:
+        app: sql-processor
+    spec:
+      containers:
+      - name: sql-processor
+        image: harlend100/sql-processor
+        env:
+          - name: RABBITMQ
+            value: "databases-rabbitmq"
+          - name: RABBITQUEUE
+            value: "%{transform->transformation->add_car}%"
+          - name: RABBITQUEUEDEST
+            value: "%{transform->transformation->myregex}%"
+          - name: RABBITPASS
+            valueFrom:
+              secretKeyRef:
+                name: databases-rabbitmq
+                key: rabbitmq-password
+                optional: false
+          - name: ESENDPOINT
+            value: p1ic4302-es-default
+          - name: ESPASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: p1ic4302-es-elastic-user
+                key: elastic
+                optional: false
+          - name: MDB_USERNAME
+            value: root
+          - name: MDB_PASSWORD
+            value: "1234"
+          - name: MDB_HOST
+            value: "host.docker.internal"
+          - name: MDB_DATABASE
+            value: estudiantesTEC
+          - name: JOBINDEX
+            value: jobs
+          - name: GROUPINDEX
+            value: groups

@@ -1,0 +1,15 @@
+prometheus: 
+  namespace: monitoring
+dashboards:
+  elasticsearch:
+    name: elasticsearch
+    file: elasticsearch.json
+    enable: true
+  mariadb:
+    name: mariadb
+    file: mariadb.json
+    enable: true
+  rabbitmq:
+    name: rabbitmq
+    file: rabbitmq.json
+    enable: true

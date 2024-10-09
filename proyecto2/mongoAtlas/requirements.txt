@@ -1,0 +1,6 @@
+flask
+flask_cors
+pymongo
+datetime
+prometheus_client
+neo4j

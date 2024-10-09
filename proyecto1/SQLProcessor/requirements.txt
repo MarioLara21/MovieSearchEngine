@@ -1,0 +1,5 @@
+pika
+mysql-connector
+requests
+mariadb
+elasticsearch
