@@ -1,7 +1,0 @@
-enableECKOperator: true
-namespaces:
-- mysql
-- application
-- elastic
-- mariadb
-- monitoring

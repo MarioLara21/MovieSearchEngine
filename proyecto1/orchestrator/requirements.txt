@@ -1,4 +1,0 @@
-mariadb
-requests
-pika
-elasticsearch
